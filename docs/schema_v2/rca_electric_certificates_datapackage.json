@@ -1,0 +1,84 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "resource1",
+      "path": "rca_electric_certificates.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "certificate_number",
+            "type": "number",
+            "format": "default",
+            "title": "Certificate Number",
+            "description": "Unique identifier by assigned by the RCA"
+          },
+          {
+            "name": "certificate_type",
+            "type": "string",
+            "format": "default",
+            "title": "Certificate Type",
+            "description": "In this case, all Certificate of Public Convenience & Necessity (CPCN)"
+          },
+          {
+            "name": "entity",
+            "type": "string",
+            "format": "default",
+            "title": "Entity",
+            "description": "The coded abbreviation for the company that operates the utility"
+          },
+          {
+            "name": "certificate_name",
+            "type": "string",
+            "format": "default",
+            "title": "Certificate Name",
+            "description": "The title of the certificate roughly corresponds to the utility"
+          },
+          {
+            "name": "utility_type",
+            "type": "string",
+            "format": "default",
+            "title": "Utility Type",
+            "description": "In this case, all electric, but other types could include cable, natural gas, sewer, and water."
+          },
+          {
+            "name": "certificate_status",
+            "type": "string",
+            "format": "default",
+            "title": "Certificate Status",
+            "description": "Active or Inactive"
+          },
+          {
+            "name": "cpcn_url",
+            "type": "string",
+            "format": "default",
+            "title": "CPCN URL",
+            "description": "Link to the RCA webpage that describes the CPCN, including tabs for tariff matters and financial filings."
+          },
+          {
+            "name": "entity_url",
+            "type": "string",
+            "format": "default",
+            "title": "Entity URL",
+            "description": "Link to the RCA webpage that displays the address and webpage of the operating entity and includes tabs for documents and pending matters."
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "legal",
+    "regulatory"
+  ],
+  "homepage": "https://rca.alaska.gov/RCAWeb/RCALibrary/SearchResults.aspx?t=cert&p=typesearch&cert=&entity=&utiltype=fb3aa508-d4ce-40d9-8e4a-602912321bce",
+  "contributors": [
+    {
+      "title": "E Dobbins",
+      "role": "author"
+    }
+  ],
+  "name": "rca_electric_certificates",
+  "title": "RCA Electric Certificates",
+  "description": "List of Regulatory Commission of Alaska (RCA) Certificate of Public Convenience & Necessity (CPCN) numbers and entities. This list was downloaded from RCA search results and then parsed to expose the URLs leading to more information.\n\nA certificate of public convenience and necessity is a legal document that grants permission to a company or individual to provide a certain service or operate in a certain area. It is issued by a regulatory agency, such as a state or federal government, and is based on the agency's determination that the service or operation is necessary and in the public interest."
+}

@@ -1,0 +1,49 @@
+{
+  "name": "test_datapackage",
+  "title": "Test Package for Capacity",
+  "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum eros maximus, ullamcorper neque quis, commodo lorem. Maecenas non dui vel mauris aliquam tincidunt ac eget magna. Nullam lacinia sem ac est laoreet, ac ultricies dui bibendum. Aenean feugiat, eros nec consequat egestas, nibh leo posuere sem, non tristique nunc magna sit amet leo. Cras ultrices lorem fringilla urna commodo euismod. Ut pulvinar dictum tortor placerat convallis. Praesent eget ante a nisi ornare vestibulum mattis id velit. Cras dictum sapien enim, id placerat orci fringilla eget. Etiam in fermentum nisi. Maecenas ac tortor nunc.\n\nDonec ex ligula, ultricies sed laoreet vel, posuere ut turpis. Nulla in leo ac leo auctor dignissim. Vestibulum eu enim at felis lacinia hendrerit. Suspendisse potenti. Nullam vel leo vestibulum nisl vehicula aliquam sit amet id ligula. Mauris nec mauris libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed mauris mauris, varius egestas sapien volutpat, rutrum varius ligula.\n",
+  "resources": [
+    {
+      "name": "capacity",
+      "type": "table",
+      "description": "Annual capacity for a grid in Alaska",
+      "path": "./capacity.csv",
+      "scheme": "file",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "grid_id",
+            "type": "integer",
+            "title": "Grid ID",
+            "description": "A unique identifier for the grid for which capacity is calculated"
+          },
+          {
+            "name": "capacity_mw",
+            "type": "number",
+            "title": "Generation Capacity",
+            "description": "The maximum amount of electricity that can be generated at any given time in megawatts (MW)"
+          },
+          {
+            "name": "fuel_type",
+            "type": "string",
+            "title": "Fuel Type",
+            "description": "Type of fuel used for generation"
+          },
+          {
+            "name": "year",
+            "type": "year",
+            "title": "Year",
+            "description": "Year for which capacity is calculated",
+            "constraints": {
+              "minimum": 2010,
+              "maximum": 2025
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

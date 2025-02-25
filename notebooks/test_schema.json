@@ -1,0 +1,55 @@
+{
+  "name": "capacity",
+  "type": "table",
+  "description": "Annual capacity for a grid in Alaska",
+  "path": "./capacity.csv",
+  "scheme": "file",
+  "format": "csv",
+  "mediatype": "text/csv",
+  "encoding": "utf-8",
+  "schema": {
+    "fields": [
+      {
+        "name": "grid_id",
+        "type": "integer",
+        "title": "Grid ID",
+        "description": "A unique identifier for the grid for which capacity is calculated"
+      },
+      {
+        "name": "capacity_mw",
+        "type": "number",
+        "title": "Generation Capacity",
+        "description": "The maximum amount of electricity that can be generated at any given time in megawatts (MW)"
+      },
+      {
+        "name": "fuel_type",
+        "type": "string",
+        "title": "Fuel Type",
+        "description": "Type of fuel used for generation"
+      },
+      {
+        "name": "year",
+        "type": "year",
+        "title": "Year",
+        "description": "Year for which capacity is calculated",
+        "constraints": {
+          "minimum": 2010,
+          "maximum": 2025
+        }
+      }
+    ],
+    "foreignKeys": [
+      {
+        "fields": [
+          "grid_id"
+        ],
+        "reference": {
+          "resource": "grids",
+          "fields": [
+            "grid_id"
+          ]
+        }
+      }
+    ]
+  }
+}

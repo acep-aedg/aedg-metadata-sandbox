@@ -1,0 +1,792 @@
+{
+    "profile": "data-package",
+    "resources": [
+      {
+        "name": "identities",
+        "path": "identities.csv",
+        "profile": "tabular-data-resource",
+        "schema": {
+          "fields": [
+            {
+              "name": "community",
+              "type": "string",
+              "format": "default",
+              "title": "PCE Community Name",
+              "description": "Human-readable name for the reporting PCE community."
+            },
+            {
+              "name": "community_code",
+              "type": "integer",
+              "format": "default",
+              "title": "PCE Community Code",
+              "description": "Is the code used in the PCE database for tracking reporting."
+            }
+          ]
+        },
+        "format": "CSV"
+      },
+      {
+        "name": "interties",
+        "path": "interties.csv",
+        "profile": "tabular-data-resource",
+        "schema": {
+          "fields": [
+            {
+              "name": "intertie_name",
+              "type": "string",
+              "format": "default",
+              "title": "Intertie Name",
+              "description": "Human-readable name for the intertie. Is based on the index community."
+            },
+            {
+              "name": "intertie_id",
+              "type": "string",
+              "format": "default",
+              "title": "Intertie ID",
+              "description": "Machine-readable ID for the intertie. First three digits are unique, and the last 4 digits are the year of the interconnection."
+            },
+            {
+              "name": "intertie_month",
+              "type": "integer",
+              "format": "default",
+              "title": "Intertie Month",
+              "description": "The month of the interconnection. May represent either the service date or the date at which the customers began paying a different rate as a result of the interconnection."
+            },
+            {
+              "name": "intertie_year",
+              "type": "string",
+              "format": "default",
+              "description": "The year of the interconnection. May represent either the service date or the date at which the customers began paying a different rate as a result of the interconnection.",
+              "title": "Intertie Month"
+            },
+            {
+              "name": "data_source",
+              "type": "string",
+              "format": "default",
+              "title": "Data Source",
+              "description": "Additional information regarding the source of the intertie information."
+            },
+            {
+              "name": "community",
+              "type": "string",
+              "format": "default",
+              "title": "Index Community",
+              "description": "The index community on the intertie. This usually refers to the community which others were connected to. May refer to the first community alphabetically."
+            },
+            {
+              "name": "operator_name",
+              "type": "string",
+              "format": "default",
+              "title": "Operator Name",
+              "description": "The name of the utility servicing the community and the entity filling out the PCE UMR form."
+            },
+            {
+              "name": "gnis",
+              "type": "integer",
+              "format": "default",
+              "title": "GNIS ID",
+              "description": "The Geographic Names Information System (GNIS) unique ID for the index community."
+            },
+            {
+              "name": "latitude",
+              "type": "number",
+              "format": "default",
+              "title": "Latitude",
+              "description": "The latitudinal coordinate for the index community."
+            },
+            {
+              "name": "longitude",
+              "type": "number",
+              "format": "default",
+              "title": "Longitude",
+              "description": "The longitudinal coordinate for the index community."
+            },
+            {
+              "name": "aea_energy_region",
+              "type": "string",
+              "format": "default",
+              "title": "AEA Energy Region",
+              "description": "The energy region the index community falls within as described by the Alaska Energy Authority."
+            },
+            {
+              "name": "calendar_datetime",
+              "type": "string",
+              "format": "default",
+              "title": "Calendar Date",
+              "description": "The calendar date of the interconnection (MM/DD/YYYY)."
+            }
+          ]
+        }
+      },
+      {
+        "name": "pce-umr-uncleaned",
+        "path": "pce-umr-uncleaned.csv",
+        "profile": "tabular-data-resource",
+        "schema": {
+          "fields": [
+            {
+              "name": "community",
+              "type": "string",
+              "format": "default",
+              "title": "Community Name",
+              "description": "Human-readable name for the reporting PCE community."
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "format": "default",
+              "title": "Operator Name",
+              "description": "The name of the utility servicing the community and the entity filling out the PCE UMR form."
+            },
+            {
+              "name": "fiscal_year",
+              "type": "year",
+              "format": "default",
+              "title": "Fiscal Year",
+              "description": "The fiscal year of the report. Based on the State of Alaska fiscal year."
+            },
+            {
+              "name": "fiscal_month",
+              "type": "integer",
+              "format": "default",
+              "title": "Fiscal Month",
+              "description": "The fiscal month of the report. Based on the State of Alaska fiscal year."
+            },
+            {
+              "name": "residential_rate",
+              "type": "number",
+              "format": "default",
+              "title": "Residential Rate",
+              "description": "The residential rate ($/kWh) before the PCE level is deducted. Only applies to kWh's underneath the household limit for residential customers. This rate includes the energy charge plus any surcharge or customer charge."
+            },
+            {
+              "name": "pce_rate",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Level",
+              "description": "This is the current PCE level ($/kWh). This is supplied by the Regulatory Commission of Alaska."
+            },
+            {
+              "name": "effective_rate",
+              "type": "number",
+              "format": "default",
+              "title": "Effective Rate",
+              "description": "The residential rate minus the PCE level ($/kWh). This field is automatically calculated."
+            },
+            {
+              "name": "pce_eligible_residential_kwh",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Eligible Residential Sales",
+              "description": "The total number of kWh sales to the residential customer class that are eligible for PCE rate assistance (kWh)."
+            },
+            {
+              "name": "pce_eligible_commercial_kwh",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Eligible Commercial Sales",
+              "description": "The total number of kWh sales to the commercial customer class that are eligible for PCE rate assistance."
+            },
+            {
+              "name": "pce_eligible_community_facility_kwh",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Eligible Community Facility Sales",
+              "description": "The total number of kWh sales to the community facility customer class that are eligible for PCE rate assistance."
+            },
+            {
+              "name": "pce_eligible_kwh_total",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Eligible Total Sales",
+              "description": "The total number of kWh sales that are eligible for PCE rate assistance."
+            },
+            {
+              "name": "fuel_price",
+              "type": "number",
+              "format": "default",
+              "title": "Fuel Price",
+              "description": "This is the price of fuel ($/gallon) that was used by the Regulatory Commission of Alaska to determine the PCE level."
+            },
+            {
+              "name": "fuel_used_gallons",
+              "type": "number",
+              "format": "default",
+              "title": "Fuel Used",
+              "description": "The total amount of diesel fuel consumed (gallons) during the reporting period."
+            },
+            {
+              "name": "fuel_cost",
+              "type": "number",
+              "format": "default",
+              "title": "Fuel Cost",
+              "description": "The total cost ($) of diesel fuel used during the reporting period. This is the actual number of gallons used multiplied by the price per gallon that was used by the Regulatory Commission of Alaska to determine the PCE level."
+            },
+            {
+              "name": "non_fuel_expenses",
+              "type": "number",
+              "format": "default",
+              "title": "Non-fuel Expenses",
+              "description": "The total non-fuel expenses ($) for the reporting period. This includes salaries, postage, office supplies, travel, parts, etc."
+            },
+            {
+              "name": "diesel_efficiency",
+              "type": "number",
+              "format": "default",
+              "title": "Diesel Efficiency",
+              "description": "The average number of kWh's generated per gallon of diesel fuel consumed (kWh/gallon). This field is automatically calculated."
+            },
+            {
+              "name": "diesel_kwh_generated",
+              "type": "number",
+              "format": "default",
+              "title": "Diesel Generation",
+              "description": "The total number of kilowatt-hours generated using diesel fuel (kWh)."
+            },
+            {
+              "name": "hydro_kwh_generated",
+              "type": "number",
+              "format": "default",
+              "title": "Hydropower Generation",
+              "description": "The total number of kilowatt-hours generated using hydropower facilities (kWh)."
+            },
+            {
+              "name": "other_1_kwh_type",
+              "type": "any",
+              "format": "default",
+              "title": "Other Generation Type - 1",
+              "description": "A description of the generation source 1."
+            },
+            {
+              "name": "other_1_kwh_generated",
+              "type": "integer",
+              "format": "default",
+              "title": "Other Generation - 1",
+              "description": "The total number of kilowatt-hours generated using other generation source 1 (kWh)."
+            },
+            {
+              "name": "other_2_kwh_type",
+              "type": "any",
+              "format": "default",
+              "description": "A description of the generation source 2.",
+              "title": "Other Generation Type - 2"
+            },
+            {
+              "name": "other_2_kwh_generated",
+              "type": "number",
+              "format": "default",
+              "title": "Other Generation - 2",
+              "description": "The total number of kilowatt-hours generated using other generation source 2 (kWh)."
+            },
+            {
+              "name": "purchased_from",
+              "type": "any",
+              "format": "default",
+              "title": "Purchased From",
+              "description": "The name of the vendor from which the community purchased power."
+            },
+            {
+              "name": "total_kwh_purchased",
+              "type": "number",
+              "format": "default",
+              "title": "Purchased Electricity",
+              "description": "The total kilowatt-hours purchased during the reporting period (kWh)."
+            },
+            {
+              "name": "powerhouse_consumption_kwh",
+              "type": "number",
+              "format": "default",
+              "title": "Powerhouse Consumption",
+              "description": "The number of kilowatt-hours used for station service (kWh) in the reporting period."
+            },
+            {
+              "name": "peak_consumption_kw",
+              "type": "number",
+              "format": "default",
+              "title": "Peak Consumption",
+              "description": "The highest peak demand reading during the reporting period (kW)."
+            },
+            {
+              "name": "residential_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Residential Sales",
+              "description": "The total number of kWh sales to the residential customer class (kWh)."
+            },
+            {
+              "name": "commercial_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Commercial Sales",
+              "description": "The total number of kWh sales to the commercial customer class (kWh)."
+            },
+            {
+              "name": "community_facility_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Community Facility Sales",
+              "description": "The total number of kWh sales to the community facility customer class (kWh)."
+            },
+            {
+              "name": "government_facility_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Government Facility Sales",
+              "description": "The total number of kWh sales to the government customer class (kWh)."
+            },
+            {
+              "name": "unbilled_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Unbilled Sales",
+              "description": "The total number of kWh sales to unbilled customers (kWh)."
+            },
+            {
+              "name": "residential_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Residential Customers",
+              "description": "The total number of customers that qualify as residential customers (customers)."
+            },
+            {
+              "name": "commercial_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Commercial Customers",
+              "description": "The total number of customers that qualify as commercial customers (customers)."
+            },
+            {
+              "name": "community_facility_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Community Facility Customers",
+              "description": "The total number of customers that qualify as community facility customers (customers)."
+            },
+            {
+              "name": "government_facility_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Government Facility Customers",
+              "description": "The total number of customers that qualify as government facility customers (customers)."
+            },
+            {
+              "name": "unbilled_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Unbilled Customers",
+              "description": "The total number of customers that are supplied power but not charged for it (customers)."
+            },
+            {
+              "name": "other_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Other Customers",
+              "description": "The total number of customers that cannot be described as residential, commercial, community facility, government facility, or unbilled (customers)."
+            },
+            {
+              "name": "other_customers_description",
+              "type": "any",
+              "format": "default",
+              "title": "Other Customers Description",
+              "description": "A description of the other customers."
+            },
+            {
+              "name": "community_code",
+              "type": "integer",
+              "format": "default",
+              "title": "PCE Community Code",
+              "description": "Machine-readable code for  identifying the PCE community. Is the code used in the PCE database for tracking reporting."
+            },
+            {
+              "name": "calendar_month",
+              "type": "integer",
+              "format": "default",
+              "title": "Calendar Month",
+              "description": "The calendar month of the reporting period."
+            },
+            {
+              "name": "calendar_year",
+              "type": "integer",
+              "format": "default",
+              "title": "Calendar Year",
+              "description": "The calendar year of the reporting period."
+            },
+            {
+              "name": "calendar_datetime",
+              "type": "date",
+              "format": "default",
+              "title": "Calendar Date",
+              "description": "The calendar date of the reporting period."
+            }
+          ]
+        }
+      },
+      {
+        "name": "pce-umr-cleaned",
+        "path": "pce-umr-cleaned.csv",
+        "profile": "tabular-data-resource",
+        "schema": {
+          "fields": [
+            {
+              "name": "community",
+              "type": "string",
+              "format": "default",
+              "title": "Community Name",
+              "description": "Human-readable name for the reporting PCE community."
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "format": "default",
+              "title": "Operator Name",
+              "description": "The name of the utility servicing the community and the entity filling out the PCE UMR form."
+            },
+            {
+              "name": "fiscal_year",
+              "type": "year",
+              "format": "default",
+              "title": "Fiscal Year",
+              "description": "The fiscal year of the report. Based on the State of Alaska fiscal year."
+            },
+            {
+              "name": "fiscal_month",
+              "type": "integer",
+              "format": "default",
+              "title": "Fiscal Month",
+              "description": "The fiscal month of the report. Based on the State of Alaska fiscal year."
+            },
+            {
+              "name": "residential_rate",
+              "type": "number",
+              "format": "default",
+              "title": "Residential Rate",
+              "description": "The residential rate ($/kWh) before the PCE level is deducted. Only applies to kWh's underneath the household limit for residential customers. This rate includes the energy charge plus any surcharge or customer charge."
+            },
+            {
+              "name": "pce_rate",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Level",
+              "description": "This is the current PCE level ($/kWh). This is supplied by the Regulatory Commission of Alaska."
+            },
+            {
+              "name": "effective_rate",
+              "type": "number",
+              "format": "default",
+              "title": "Effective Rate",
+              "description": "The residential rate minus the PCE level ($/kWh). This field is automatically calculated."
+            },
+            {
+              "name": "pce_eligible_residential_kwh",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Eligible Residential Sales",
+              "description": "The total number of kWh sales to the residential customer class that are eligible for PCE rate assistance (kWh)."
+            },
+            {
+              "name": "pce_eligible_commercial_kwh",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Eligible Commercial Sales",
+              "description": "The total number of kWh sales to the commercial customer class that are eligible for PCE rate assistance."
+            },
+            {
+              "name": "pce_eligible_community_facility_kwh",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Eligible Community Facility Sales",
+              "description": "The total number of kWh sales to the community facility customer class that are eligible for PCE rate assistance."
+            },
+            {
+              "name": "pce_eligible_kwh_total",
+              "type": "number",
+              "format": "default",
+              "title": "PCE Eligible Total Sales",
+              "description": "The total number of kWh sales that are eligible for PCE rate assistance."
+            },
+            {
+              "name": "fuel_price",
+              "type": "number",
+              "format": "default",
+              "title": "Fuel Price",
+              "description": "This is the price of fuel ($/gallon) that was used by the Regulatory Commission of Alaska to determine the PCE level."
+            },
+            {
+              "name": "fuel_used_gallons",
+              "type": "number",
+              "format": "default",
+              "title": "Fuel Used",
+              "description": "The total amount of diesel fuel consumed (gallons) during the reporting period."
+            },
+            {
+              "name": "fuel_cost",
+              "type": "number",
+              "format": "default",
+              "title": "Fuel Cost",
+              "description": "The total cost ($) of diesel fuel used during the reporting period. This is the actual number of gallons used multiplied by the price per gallon that was used by the Regulatory Commission of Alaska to determine the PCE level."
+            },
+            {
+              "name": "non_fuel_expenses",
+              "type": "number",
+              "format": "default",
+              "title": "Non-fuel Expenses",
+              "description": "The total non-fuel expenses ($) for the reporting period. This includes salaries, postage, office supplies, travel, parts, etc."
+            },
+            {
+              "name": "diesel_efficiency",
+              "type": "number",
+              "format": "default",
+              "title": "Diesel Efficiency",
+              "description": "The average number of kWh's generated per gallon of diesel fuel consumed (kWh/gallon). This field is automatically calculated."
+            },
+            {
+              "name": "diesel_kwh_generated",
+              "type": "number",
+              "format": "default",
+              "title": "Diesel Generation",
+              "description": "The total number of kilowatt-hours generated using diesel fuel (kWh)."
+            },
+            {
+              "name": "hydro_kwh_generated",
+              "type": "number",
+              "format": "default",
+              "title": "Hydropower Generation",
+              "description": "The total number of kilowatt-hours generated using hydropower facilities (kWh)."
+            },
+            {
+              "name": "other_1_kwh_type",
+              "type": "any",
+              "format": "default",
+              "title": "Other Generation Type - 1",
+              "description": "A description of the generation source 1."
+            },
+            {
+              "name": "other_1_kwh_generated",
+              "type": "integer",
+              "format": "default",
+              "title": "Other Generation - 1",
+              "description": "The total number of kilowatt-hours generated using other generation source 1 (kWh)."
+            },
+            {
+              "name": "other_2_kwh_type",
+              "type": "any",
+              "format": "default",
+              "description": "A description of the generation source 2.",
+              "title": "Other Generation Type - 2"
+            },
+            {
+              "name": "other_2_kwh_generated",
+              "type": "number",
+              "format": "default",
+              "title": "Other Generation - 2",
+              "description": "The total number of kilowatt-hours generated using other generation source 2 (kWh)."
+            },
+            {
+              "name": "purchased_from",
+              "type": "any",
+              "format": "default",
+              "title": "Purchased From",
+              "description": "The name of the vendor from which the community purchased power."
+            },
+            {
+              "name": "total_kwh_purchased",
+              "type": "number",
+              "format": "default",
+              "title": "Purchased Electricity",
+              "description": "The total kilowatt-hours purchased during the reporting period (kWh)."
+            },
+            {
+              "name": "powerhouse_consumption_kwh",
+              "type": "number",
+              "format": "default",
+              "title": "Powerhouse Consumption",
+              "description": "The number of kilowatt-hours used for station service (kWh) in the reporting period."
+            },
+            {
+              "name": "peak_consumption_kw",
+              "type": "number",
+              "format": "default",
+              "title": "Peak Consumption",
+              "description": "The highest peak demand reading during the reporting period (kW)."
+            },
+            {
+              "name": "residential_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Residential Sales",
+              "description": "The total number of kWh sales to the residential customer class (kWh)."
+            },
+            {
+              "name": "commercial_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Commercial Sales",
+              "description": "The total number of kWh sales to the commercial customer class (kWh)."
+            },
+            {
+              "name": "community_facility_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Community Facility Sales",
+              "description": "The total number of kWh sales to the community facility customer class (kWh)."
+            },
+            {
+              "name": "government_facility_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Government Facility Sales",
+              "description": "The total number of kWh sales to the government customer class (kWh)."
+            },
+            {
+              "name": "unbilled_kwh_sold",
+              "type": "number",
+              "format": "default",
+              "title": "Unbilled Sales",
+              "description": "The total number of kWh sales to unbilled customers (kWh)."
+            },
+            {
+              "name": "residential_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Residential Customers",
+              "description": "The total number of customers that qualify as residential customers (customers)."
+            },
+            {
+              "name": "commercial_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Commercial Customers",
+              "description": "The total number of customers that qualify as commercial customers (customers)."
+            },
+            {
+              "name": "community_facility_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Community Facility Customers",
+              "description": "The total number of customers that qualify as community facility customers (customers)."
+            },
+            {
+              "name": "government_facility_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Government Facility Customers",
+              "description": "The total number of customers that qualify as government facility customers (customers)."
+            },
+            {
+              "name": "unbilled_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Unbilled Customers",
+              "description": "The total number of customers that are supplied power but not charged for it (customers)."
+            },
+            {
+              "name": "other_customers",
+              "type": "number",
+              "format": "default",
+              "title": "Other Customers",
+              "description": "The total number of customers that cannot be described as residential, commercial, community facility, government facility, or unbilled (customers)."
+            },
+            {
+              "name": "other_customers_description",
+              "type": "any",
+              "format": "default",
+              "title": "Other Customers Description",
+              "description": "A description of the other customers."
+            },
+            {
+              "name": "community_code",
+              "type": "integer",
+              "format": "default",
+              "title": "PCE Community Code",
+              "description": "Machine-readable code for  identifying the PCE community. Is the code used in the PCE database for tracking reporting."
+            },
+            {
+              "name": "calendar_month",
+              "type": "integer",
+              "format": "default",
+              "title": "Calendar Month",
+              "description": "The calendar month of the reporting period."
+            },
+            {
+              "name": "calendar_year",
+              "type": "integer",
+              "format": "default",
+              "title": "Calendar Year",
+              "description": "The calendar year of the reporting period."
+            },
+            {
+              "name": "calendar_datetime",
+              "type": "date",
+              "format": "default",
+              "title": "Calendar Date",
+              "description": "The calendar date of the reporting period."
+            },
+            {
+              "name": "intertie_name",
+              "type": "string",
+              "format": "default",
+              "title": "Intertie Name",
+              "description": "Human-readable name for the intertie. Is based on the index community."
+            },
+            {
+              "name": "intertie_id",
+              "type": "string",
+              "format": "default",
+              "title": "Intertie ID",
+              "description": "Machine-readable ID for the intertie. First three digits are unique, and the last 4 digits are the year of the interconnection."
+            },
+            {
+              "name": "intertie_month",
+              "type": "integer",
+              "format": "default",
+              "title": "Intertie Month",
+              "description": "The month of the interconnection. May represent either the service date or the date at which the customers began paying a different rate as a result of the interconnection."
+            },
+            {
+              "name": "intertie_year",
+              "type": "string",
+              "format": "default",
+              "description": "The year of the interconnection. May represent either the service date or the date at which the customers began paying a different rate as a result of the interconnection.",
+              "title": "Intertie Month"
+            },
+            {
+              "name": "data_source",
+              "type": "string",
+              "format": "default",
+              "title": "Data Source",
+              "description": "Additional information regarding the source of the intertie information."
+            },
+            {
+              "name": "interconnected",
+              "type": "boolean",
+              "format": "default",
+              "title": "Interconnection Status",
+              "description": "A boolean value describing if the reporting community was interconnected to another during the reporting period."
+            }
+          ]
+        }
+      }
+    ],
+    "keywords": [
+      "Alaska",
+      "Electricity",
+      "Power Cost Equalization"
+    ],
+    "name": "pce-umr",
+    "title": "Alaska Power Cost Equalization Utility Monthly Reports Database",
+    "description": "This data package contains the PCE UMR data from 2000 to 2024. It includes both cleaned and uncleaned versions of the data. Additionally, it includes some information on interties.",
+    "homepage": "https://acep-uaf.github.io/pce-database/",
+    "contributors": [
+      {
+        "title": "Jesse Kaczmarski",
+        "role": "author"
+      }
+    ],
+    "licenses": [
+      {
+        "name": "CC0-1.0",
+        "title": "CC0 1.0",
+        "path": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ]
+  }
