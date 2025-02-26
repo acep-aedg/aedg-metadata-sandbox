@@ -11,12 +11,14 @@
         {
           "title": "EIA Yearly Generation from the Public Utility Data Liberation (PUDL) project",
           "path": "https://catalystcoop-pudl.readthedocs.io/en/latest/data_access.html",
-          "description": "Something\n            Step 1: get data\n            Step 2: something\n            Step 3: profit "
+          "lineage": "Something\n            Step 1: get data\n            Step 2: something\n            Step 3: profit ",
+          "credit": "Catalyst Cooperative. (2023). Public Utility Data Liberation Project (PUDL). Accessed [Date] from https://catalyst.coop/pudl. and Energy Information Administration"
         },
         {
           "title": "Lookup connecting Plant Ids used by EAI to grids in Alaska",
           "path": "https://github.com/acep-aedg/aedg-data-pond/blob/main/data/intermediate/lookup_eia_plants_grids.csv",
-          "description": "Something else"
+          "lineage": "Something else",
+          "credit": "Alaska Center for Energy and Power"
         }
       ],
       "path": "./capacity.csv",
