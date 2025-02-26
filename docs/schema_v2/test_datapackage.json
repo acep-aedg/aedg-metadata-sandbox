@@ -1,12 +1,24 @@
 {
   "name": "test_datapackage",
   "title": "Test Package for Capacity",
-  "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum eros maximus, ullamcorper neque quis, commodo lorem. Maecenas non dui vel mauris aliquam tincidunt ac eget magna. Nullam lacinia sem ac est laoreet, ac ultricies dui bibendum. Aenean feugiat, eros nec consequat egestas, nibh leo posuere sem, non tristique nunc magna sit amet leo. Cras ultrices lorem fringilla urna commodo euismod. Ut pulvinar dictum tortor placerat convallis. Praesent eget ante a nisi ornare vestibulum mattis id velit. Cras dictum sapien enim, id placerat orci fringilla eget. Etiam in fermentum nisi. Maecenas ac tortor nunc.\n\nDonec ex ligula, ultricies sed laoreet vel, posuere ut turpis. Nulla in leo ac leo auctor dignissim. Vestibulum eu enim at felis lacinia hendrerit. Suspendisse potenti. Nullam vel leo vestibulum nisl vehicula aliquam sit amet id ligula. Mauris nec mauris libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed mauris mauris, varius egestas sapien volutpat, rutrum varius ligula.\n",
+  "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum eros maximus, \nullamcorper neque quis, commodo lorem. Maecenas non dui vel mauris aliquam tincidunt ac eget magna. \nNullam lacinia sem ac est laoreet, ac ultricies dui bibendum. Aenean feugiat, eros nec consequat egestas, \nnibh leo posuere sem, non tristique nunc magna sit amet leo. Cras ultrices lorem fringilla urna commodo \neuismod. Ut pulvinar dictum tortor placerat convallis. Praesent eget ante a nisi ornare vestibulum mattis \nid velit. Cras dictum sapien enim, id placerat orci fringilla eget. Etiam in fermentum nisi. Maecenas ac tortor nunc.\n\nDonec ex ligula, ultricies sed laoreet vel, posuere ut turpis. Nulla in leo ac leo auctor dignissim. Vestibulum \neu enim at felis lacinia hendrerit. Suspendisse potenti. Nullam vel leo vestibulum nisl vehicula aliquam sit amet \nid ligula. Mauris nec mauris libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed mauris mauris, \nvarius egestas sapien volutpat, rutrum varius ligula.\n",
   "resources": [
     {
       "name": "capacity",
       "type": "table",
-      "description": "Annual capacity for a grid in Alaska",
+      "description": "Annual Capacity reported by EIA aggregated by powerplants on a grid",
+      "sources": [
+        {
+          "title": "EIA Yearly Generation from the Public Utility Data Liberation (PUDL) project",
+          "path": "https://catalystcoop-pudl.readthedocs.io/en/latest/data_access.html",
+          "description": "Something\n            Step 1: get data\n            Step 2: something\n            Step 3: profit "
+        },
+        {
+          "title": "Lookup connecting Plant Ids used by EAI to grids in Alaska",
+          "path": "https://github.com/acep-aedg/aedg-data-pond/blob/main/data/intermediate/lookup_eia_plants_grids.csv",
+          "description": "Something else"
+        }
+      ],
       "path": "./capacity.csv",
       "scheme": "file",
       "format": "csv",
