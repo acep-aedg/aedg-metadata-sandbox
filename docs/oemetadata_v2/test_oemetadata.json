@@ -1,17 +1,17 @@
 {
     "@context": "",
-    "name": "",
-    "title": "",
-    "description": "",
+    "name": "test_datapackage",
+    "title": "Test Data Package for Capacity",
+    "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum eros maximus, \nullamcorper neque quis, commodo lorem. Maecenas non dui vel mauris aliquam tincidunt ac eget magna. \nNullam lacinia sem ac est laoreet, ac ultricies dui bibendum. Aenean feugiat, eros nec consequat egestas, \nnibh leo posuere sem, non tristique nunc magna sit amet leo. Cras ultrices lorem fringilla urna commodo \neuismod. Ut pulvinar dictum tortor placerat convallis. Praesent eget ante a nisi ornare vestibulum mattis \nid velit. Cras dictum sapien enim, id placerat orci fringilla eget. Etiam in fermentum nisi. Maecenas ac tortor nunc.\n\nDonec ex ligula, ultricies sed laoreet vel, posuere ut turpis. Nulla in leo ac leo auctor dignissim. Vestibulum \neu enim at felis lacinia hendrerit. Suspendisse potenti. Nullam vel leo vestibulum nisl vehicula aliquam sit amet \nid ligula. Mauris nec mauris libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed mauris mauris, \nvarius egestas sapien volutpat, rutrum varius ligula.\n",
     "id": "",
     "resources": [
       {
         "@id": "",
-        "name": "",
+        "name": "capacity",
         "topics": [
-          ""
+          "Electricity"
         ],
-        "title": "",
+        "title": "Annual Capacity reported by EIA aggregated by powerplants on a grid",
         "path": "",
         "description": "",
         "languages": [
@@ -26,7 +26,7 @@
         "keywords": [
           ""
         ],
-        "publicationDate": "",
+        "publicationDate": "2025-02-26",
         "embargoPeriod": {
           "start": "",
           "end": "",
@@ -69,10 +69,10 @@
           "referenceDate": "",
           "timeseries": [
             {
-              "start": "",
-              "end": "",
-              "resolutionValue": "",
-              "resolutionUnit": "",
+              "start": "2010",
+              "end": "2021",
+              "resolutionValue": "1",
+              "resolutionUnit": "year",
               "alignment": "",
               "aggregationType": ""
             }
@@ -80,13 +80,13 @@
         },
         "sources": [
           {
-            "title": "",
+            "title": "EIA Yearly Generation from the Public Utility Data Liberation (PUDL) project",
             "authors": [
-              ""
+              "Catalyst Cooperative"
             ],
             "description": "",
-            "publicationYear": "",
-            "path": "",
+            "publicationYear": "2023",
+            "path": "https://catalystcoop-pudl.readthedocs.io/en/latest/data_access.html",
             "sourceLicenses": [
               {
                 "name": "",
@@ -97,8 +97,26 @@
                 "copyrightStatement": ""
               }
             ]
-          }
-        ],
+          },
+          {
+            "title": "Lookup connecting Plant Ids used by EAI to grids in Alaska",
+            "authors": [
+              "Alaska Center for Energy and Power"
+            ],
+            "description": "",
+            "publicationYear": "2023",
+            "path": "https://github.com/acep-aedg/aedg-data-pond/blob/main/data/intermediate/lookup_eia_plants_grids.csv",
+            "sourceLicenses": [
+              {
+                "name": "",
+                "title": "",
+                "path": "",
+                "instruction": "",
+                "attribution": "",
+                "copyrightStatement": ""
+              }
+            ]
+          }       ],
         "licenses": [
           {
             "name": "",
@@ -113,26 +131,86 @@
           {
             "title": "",
             "path": "",
-            "organization": "",
+            "organization": "Alaska Center for Energy and Power, University of Alaska Fairbanks",
             "roles": [
               ""
             ],
-            "date": "",
+            "date": "2025-02-26",
             "object": "",
             "comment": ""
           }
         ],
-        "type": "",
-        "format": "",
-        "encoding": "",
+        "type": "table",
+        "format": "CSV",
+        "encoding": "utf-8",
         "schema": {
           "fields": [
             {
-              "name": "",
-              "description": "",
-              "type": "",
+              "name": "grid_id",
+              "description": "A unique identifier for the grid for which capacity is calculated",
+              "type": "integer",
               "nullable": false,
               "unit": "",
+              "isAbout": [
+                {
+                  "name": "",
+                  "@id": ""
+                }
+              ],
+              "valueReference": [
+                {
+                  "value": "",
+                  "name": "",
+                  "@id": ""
+                }
+              ]
+            },
+            {
+              "name": "capacity_mw",
+              "description": "The maximum amount of electricity that can be generated at any given time in megawatts (MW)",
+              "type": "number",
+              "nullable": false,
+              "unit": "MW",
+              "isAbout": [
+                {
+                  "name": "",
+                  "@id": ""
+                }
+              ],
+              "valueReference": [
+                {
+                  "value": "",
+                  "name": "",
+                  "@id": ""
+                }
+              ]
+            },
+            {
+              "name": "fuel_type",
+              "description": "Type of fuel used for generation",
+              "type": "string",
+              "nullable": false,
+              "unit": "",
+              "isAbout": [
+                {
+                  "name": "",
+                  "@id": ""
+                }
+              ],
+              "valueReference": [
+                {
+                  "value": "",
+                  "name": "",
+                  "@id": ""
+                }
+              ]
+            },
+            {
+              "name": "year",
+              "description": "Year for which capacity is calculated",
+              "type": "integer",
+              "nullable": false,
+              "unit": "1",
               "isAbout": [
                 {
                   "name": "",
@@ -149,25 +227,25 @@
             }
           ],
           "primaryKey": [
-            ""
+            "id"
           ],
           "foreignKeys": [
             {
               "fields": [
-                ""
+                "grid_id"
               ],
               "reference": {
-                "resource": "",
+                "resource": "grids.csv",
                 "fields": [
-                  ""
+                  "grid_id"
                 ]
               }
             }
           ]
         },
         "dialect": {
-          "delimiter": "",
-          "decimalSeparator": ""
+          "delimiter": ",",
+          "decimalSeparator": "."
         },
         "review": {
           "path": "",
