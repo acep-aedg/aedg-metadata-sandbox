@@ -14,3 +14,4 @@ To use all the fields effectively, you will also need the [Open Energy Ontology]
 ## Examples
 
 * test_oemetadata.json: Describing `capacity.csv` like tried with Frictionless code, but this was done by hand to start with.
+* oemetadata_example.json: The official example from https://github.com/OpenEnergyPlatform/oemetadata/blob/develop/oemetadata/latest/example.json

@@ -7,10 +7,16 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "frictionless" },
+    { name = "oemetadata" },
+    { name = "pyyaml" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "frictionless", specifier = ">=5.18.0" }]
+requires-dist = [
+    { name = "frictionless", specifier = ">=5.18.0" },
+    { name = "oemetadata", specifier = ">=2.0.3" },
+    { name = "pyyaml", specifier = ">=6.0.2" },
+]
 
 [[package]]
 name = "annotated-types"
@@ -267,6 +273,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba", size = 8729 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8", size = 9979 },
+]
+
+[[package]]
+name = "oemetadata"
+version = "2.0.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "stringcase" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d1/e4/8adc30a10530bd8bc129e8d4a04ab86e261db4350f62ad34775f87860e83/oemetadata-2.0.3.tar.gz", hash = "sha256:54be96981e3fe5864374fe68a23344ce49f85e8f4a68c87fef501d1e9783b7ad", size = 193010 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5b/a6/a9c5eda2bdab573370b565397af328ee83b071be9a842aacd5e3b4998f17/oemetadata-2.0.3-py3-none-any.whl", hash = "sha256:83cfe7505db0a23e68b03831bbbff8406d55c645e2996a0f4de38c51324a85e4", size = 259901 },
 ]
 
 [[package]]

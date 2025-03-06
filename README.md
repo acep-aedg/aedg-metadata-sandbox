@@ -2,7 +2,7 @@
 
 To create Frictionless metadata for the Alaska Energy Data Gateway
 
-## set-up
+## how I set-up
 
 ``` shell
 uv init
@@ -10,6 +10,7 @@ uv add frictionless
 uv venv
 uv sync
 source .venv/bin/activate
+uv add oemetadata
 ```
 
 ## Jupyter Notebooks
