@@ -1,0 +1,13 @@
+metadata:
+  name: "public_communities_monthly_generation"
+  path: "public_communities_monthly_generation.csv"
+  title: "Monthly electrical generation by community"
+  description: >
+      Monthly electrical generation is aggregated by grid
+      and associated with every community connected to the grid.
+  keywords:
+    - "generation"
+    - "foo"
+    - "bar"
+  licenses: ["CC0-1.0"]
+  topics: ["Electricity"]
