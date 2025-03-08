@@ -18,28 +18,39 @@ fields:
 #  ** mandatory for AEDG
 #
   idxcols:
-    - name: fips_code
+    fips_code:
       description: Federal Information Processing Standard, identifying geographic locations
       type: string
+      nullable: false
       unit: null
-    - name: grid_id
+    grid_id:
       description: A unique identifier of the grid in Alaska as determined for AEDG
       type: string
+      nullable: false
       unit: null
   cols:
-    - name: name
-      description: Community name
+    name:
+      description: Name
       type: string
+      nullable: false
       unit: null
-    - name: net_generation_mwh
+    net_generation_mwh:
       description: Net electrical generation aggregated by grid
       type: number
+      nullable: true
       unit:  Megawatt Hour 
-    - name: year
+    fuel_type:
+      description: Code indicating generation fuel
+      type: string
+      nullable: true
+      unit: null
+    year:
       description: Year
       type: integer
-      unit: 1
-    - name: month
+      nullable: false
+      unit: null
+    month:
       description: Month
       type: integer
-      unit: 1
+      nullable: false
+      unit: null

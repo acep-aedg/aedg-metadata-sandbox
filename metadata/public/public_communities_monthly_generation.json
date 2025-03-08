@@ -12,7 +12,7 @@
                 "Electricity"
             ],
             "title": "Monthly electrical generation by community",
-            "path": "public_communities_monthly_generation.csv",
+            "path": "https://github.com/acep-aedg/aedg-data-pond/blob/main/data/public/public_communities_monthly_generation.csv",
             "description": "Monthly electrical generation is aggregated by grid and associated with every community connected to the grid.\n",
             "languages": [
                 "en-US"
@@ -100,11 +100,53 @@
             "schema": {
                 "fields": [
                     {
-                        "name": "",
-                        "description": "",
-                        "type": "",
+                        "name": "fips_code",
+                        "description": "Federal Information Processing Standard, identifying geographic locations",
+                        "type": "string",
                         "nullable": false,
-                        "unit": ""
+                        "unit": null
+                    },
+                    {
+                        "name": "grid_id",
+                        "description": "A unique identifier of the grid in Alaska as determined for AEDG",
+                        "type": "string",
+                        "nullable": false,
+                        "unit": null
+                    },
+                    {
+                        "name": "name",
+                        "description": "Name",
+                        "type": "string",
+                        "nullable": false,
+                        "unit": null
+                    },
+                    {
+                        "name": "net_generation_mwh",
+                        "description": "Net electrical generation aggregated by grid",
+                        "type": "number",
+                        "nullable": true,
+                        "unit": "Megawatt Hour"
+                    },
+                    {
+                        "name": "fuel_type",
+                        "description": "Code indicating generation fuel",
+                        "type": "string",
+                        "nullable": true,
+                        "unit": null
+                    },
+                    {
+                        "name": "year",
+                        "description": "Year",
+                        "type": "integer",
+                        "nullable": false,
+                        "unit": null
+                    },
+                    {
+                        "name": "month",
+                        "description": "Month",
+                        "type": "integer",
+                        "nullable": false,
+                        "unit": null
                     }
                 ],
                 "primaryKey": [

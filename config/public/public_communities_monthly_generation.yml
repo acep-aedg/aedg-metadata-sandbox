@@ -1,13 +1,23 @@
 metadata:
   name: "public_communities_monthly_generation"
-  path: "public_communities_monthly_generation.csv"
   title: "Monthly electrical generation by community"
   description: >
       Monthly electrical generation is aggregated by grid
       and associated with every community connected to the grid.
-  keywords:
-    - "generation"
-    - "foo"
-    - "bar"
-  licenses: ["CC0-1.0"]
-  topics: ["Electricity"]
+  resources:
+    - 
+      path: "https://github.com/acep-aedg/aedg-data-pond/blob/main/data/public/public_communities_monthly_generation.csv"
+      keywords:
+        - "generation"
+        - "foo"
+        - "bar"
+      topics: ["Electricity"]
+      licenses: ["CC0-1.0"]
+      fields:
+        - fips_code
+        - grid_id
+        - name
+        - net_generation_mwh
+        - fuel_type
+        - year
+        - month
