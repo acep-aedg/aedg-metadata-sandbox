@@ -1,8 +1,12 @@
-# AEDG Metadata
+# Metadata Sandbox
 
-To create Frictionless metadata for the Alaska Energy Data Gateway
+Testing methods of creating Frictionless and Open Energy Metadata for the Alaska Energy Data Gateway
 
-## how I set-up
+This repository uses Jupyter Notebooks to explore creating metadata from a template CSV file and stashing elements in YAML registry files. None of this code is used in production. Each notebook approches the problem in a different way. 
+
+## Set-up
+
+This repository was set-up using the `uv` package manager as a way of exploring that as well.
 
 ``` shell
 uv init
